@@ -1,0 +1,11 @@
+<h1>Pages</h1>
+<p><%= link_to 'New Page', new_page_path %><p>
+<% @pages.each do |page| %>
+  <h2><%= page.title %></h2>
+  <%= link_to 'Show Page', page_path(page) %>
+  <%= link_to 'Edit Page', edit_page_path(page) %>
+  <%# don't have to use page_path => page
+  tell it what method to use on the page.delete
+  but pages_controller doesn't have a delete method %>
+  <%= link_to 'Delete Page', page, method: :delete %>
+<% end %>
